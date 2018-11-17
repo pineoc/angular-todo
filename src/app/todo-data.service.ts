@@ -13,7 +13,7 @@ export class TodoDataService {
   constructor() { }
 
   addTodo(todo: Todo): TodoDataService {
-    if(!todo.id) {
+    if (!todo.id) {
       todo.id = ++this.lastId;
     }
     this.todos.push(todo);
@@ -27,7 +27,7 @@ export class TodoDataService {
 
   updateTodoById(id: number, values: Object = {}): Todo {
     let todo = this.getTodoById(id);
-    if(!todo) {
+    if (!todo) {
       return null;
     }
     Object.assign(todo, values);
@@ -45,7 +45,7 @@ export class TodoDataService {
   }
 
   toggleTodoComplete(todo: Todo) {
-    let updatedTodo = this.updateTodoById(todo.id, {
+    const updatedTodo = this.updateTodoById(todo.id, {
       complete: !todo.complete
     });
     return updatedTodo;
